@@ -12,11 +12,12 @@ spring:
         
 url:
   trnsptng:
+    app-secure: /secure
     app-home: /home
-    home-admin: ${url.trnsptng.app-home}/admin/
-    home-sttics: ${url.trnsptng.app-home}/statics/
-    login-agregar: ${url.trnsptng.app-home}/login
-    login-consultar: ${url.trnsptng.app-home}/login
-    rol-agregar: ${url.trnsptng.app-home}/rol
-    rol-consultar: ${url.trnsptng.app-home}/rol
+    home-admin: /admin/
+    home-statics: /statics/
+    login-agregar: /login
+    login-consultar: ${url.trnsptng.app-home}/login/{nickname}
+    rol-agregar: /rol
+    rol-consultar: /rol
     

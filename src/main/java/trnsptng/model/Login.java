@@ -21,6 +21,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * 
+ * @author shark
+ *
+ */
 @Entity
 @Table(name = "trnsptng_login")
 @NoArgsConstructor
@@ -34,9 +39,11 @@ public class Login extends Persistente{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public static String REF =" Login";
+	public static final String PROP_NICKNAME = "nickName";
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private BigDecimal id;
 	

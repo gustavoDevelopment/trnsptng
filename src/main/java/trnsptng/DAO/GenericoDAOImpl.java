@@ -3,10 +3,11 @@ package trnsptng.DAO;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import trnsptng.model.Login;
 import trnsptng.model.Persistente;
 
 @Repository
@@ -47,6 +48,20 @@ public class GenericoDAOImpl implements GenericoDAO{
 			return true;
 		}catch (Exception e) {
 			return false;
+		}
+	}
+	
+	public Login getByNickName(String nickName) {
+		try {
+			StringBuilder q= new StringBuilder();
+			q.append("SELECT l ");
+			q.append("FROM "+Login.REF).append(" l ");
+			q.append("WHERE l."+Login.PROP_NICKNAME).append(" = '").append(nickName).append("'");
+		
+			Query query = entityManager.createQuery(q.toString());
+			return (Login) query.getSingleResult();
+		}catch (Exception e) {
+				return null;
 		}
 	}
 
